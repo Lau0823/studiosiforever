@@ -10,7 +10,8 @@ import {
 const DATA = {
   name: "SI FOREVER",
   year: "2026",
-  whatsapp: "573102345742",
+  whatsappLaura: "573102345742",
+  whatsappManuel: "573242417836",
   githubLaura: "https://github.com/Lau0823",
   githubManuel: "https://github.com/ManuelDRamos",
   musica: "/audio/The Police - Every Breath You Take (Mike y Once - Stranger Things)  Traducido en Ingles y Español.MP3",
@@ -30,7 +31,10 @@ const DATA = {
       preview: "/vita.png",
       tags: ["React", "Tailwind", "Firebase"] 
     },
+
   ],
+
+  
   fotosCarrusel: [
     "https://i.pinimg.com/736x/56/f4/1d/56f41dae005de9b6a76dde42a0be3442.jpg",
     "https://i.pinimg.com/736x/36/74/cc/3674cc50ecc539dbae197ccbb51d2434.jpg",
@@ -91,7 +95,7 @@ export default function JSForever2026() {
       {/* --- CONTENIDO PRINCIPAL --- */}
       <main className={`transition-all duration-[1500ms] ${opened ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         
-        {/* BARRA DE NAVEGACIÓN RESPONSIVE */}
+        {/* BARRA DE NAVEGACIÓN */}
         <nav className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-[100] w-[95%] max-w-5xl">
           <div className="bg-white/70 backdrop-blur-xl border border-white/20 rounded-full px-5 md:px-8 py-3 md:py-4 flex items-center justify-between shadow-lg shadow-black/5">
             <span className="text-sm md:text-lg font-black italic tracking-tighter uppercase">SI FOREVER</span>
@@ -104,14 +108,14 @@ export default function JSForever2026() {
           </div>
         </nav>
 
-        {/* SECCIÓN HERO ADAPTADA */}
+        {/* SECCIÓN HERO */}
         <section className="relative h-screen flex flex-col items-center justify-center px-4 overflow-hidden">
             <div className="absolute inset-0 z-0 opacity-40">
                 {DATA.fotosCarrusel.map((img, i) => (
                     <img key={i} src={img} className={`absolute inset-0 w-full h-full object-cover grayscale transition-opacity duration-[3000ms] ${currentFoto === i ? 'opacity-100 scale-100' : 'opacity-0 scale-110'}`} />
                 ))}
             </div>
-            <div className="relative z-10 text-center space-y-4 md:space-y-6 max-w-full overflow-hidden">
+            <div className="relative z-10 text-center space-y-4 md:space-y-6 max-w-full">
                 <h2 className="text-[18vw] md:text-[10rem] font-black leading-[0.85] tracking-tighter italic uppercase break-words">SI FOREVER</h2>
                 <p className="text-xl md:text-4xl font-bold tracking-tight text-neutral-800 italic max-w-2xl mx-auto px-4">
                   Hacemos cosas increíbles a nivel digital.
@@ -189,22 +193,27 @@ export default function JSForever2026() {
             </div>
         </section>
 
-        {/* PIE DE PÁGINA RECORREGIDO CON 2 GITHUBS */}
+        {/* PIE DE PÁGINA (CONTACTO DUAL) */}
         <footer id="contacto" className="py-24 md:py-40 px-6 text-center border-t border-neutral-100 bg-white">
             <h2 className="text-5xl md:text-9xl font-black italic tracking-tighter uppercase mb-16 md:mb-24 leading-[0.85]">Construyamos <br/> el futuro</h2>
             
-            <div className="flex flex-col items-center gap-6 max-w-md mx-auto">
-                {/* Botón Principal WhatsApp */}
-                <a href={`https://wa.me/${DATA.whatsapp}`} className="w-full bg-black text-white px-10 py-5 rounded-full font-black uppercase tracking-tighter hover:bg-neutral-800 transition-all text-sm md:text-base flex items-center justify-center gap-3">
-                  <Send size={18} /> WhatsApp Contact
-                </a>
-                
-                {/* Contenedor de GitHubs Adaptable */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
-                  <a href={DATA.githubLaura} target="_blank" className="w-full bg-neutral-100 text-black px-6 py-4 rounded-full font-black uppercase tracking-tighter hover:bg-neutral-200 transition-all text-[11px] md:text-xs flex items-center justify-center gap-2">
+            <div className="flex flex-col gap-10 max-w-2xl mx-auto">
+                {/* Contacto Laura */}
+                <div className="flex flex-col md:flex-row gap-4 w-full">
+                  <a href={`https://wa.me/${DATA.whatsappLaura}`} className="flex-1 bg-black text-white px-8 py-4 rounded-full font-black uppercase tracking-tighter hover:bg-neutral-800 transition-all text-xs flex items-center justify-center gap-2">
+                    <Send size={16} /> WhatsApp Laura
+                  </a>
+                  <a href={DATA.githubLaura} target="_blank" className="flex-1 bg-neutral-100 text-black px-8 py-4 rounded-full font-black uppercase tracking-tighter hover:bg-neutral-200 transition-all text-xs flex items-center justify-center gap-2">
                     <Github size={16} /> GitHub Laura
                   </a>
-                  <a href={DATA.githubManuel} target="_blank" className="w-full bg-neutral-100 text-black px-6 py-4 rounded-full font-black uppercase tracking-tighter hover:bg-neutral-200 transition-all text-[11px] md:text-xs flex items-center justify-center gap-2">
+                </div>
+
+                {/* Contacto Manuel */}
+                <div className="flex flex-col md:flex-row gap-4 w-full">
+                  <a href={`https://wa.me/${DATA.whatsappManuel}`} className="flex-1 bg-black text-white px-8 py-4 rounded-full font-black uppercase tracking-tighter hover:bg-neutral-800 transition-all text-xs flex items-center justify-center gap-2">
+                    <Send size={16} /> WhatsApp Manuel
+                  </a>
+                  <a href={DATA.githubManuel} target="_blank" className="flex-1 bg-neutral-100 text-black px-8 py-4 rounded-full font-black uppercase tracking-tighter hover:bg-neutral-200 transition-all text-xs flex items-center justify-center gap-2">
                     <Github size={16} /> GitHub Manuel
                   </a>
                 </div>
@@ -215,7 +224,7 @@ export default function JSForever2026() {
             </p>
         </footer>
 
-        {/* CONTROLES DE MÚSICA ADAPTADOS */}
+        {/* BOTÓN DE MÚSICA */}
         <button onClick={() => { 
             audioRef.current?.paused ? (audioRef.current.play(), setPlaying(true)) : (audioRef.current?.pause(), setPlaying(false))
           }} 
@@ -224,7 +233,6 @@ export default function JSForever2026() {
         </button>
       </main>
 
-      {/* ESTILOS GLOBALES CORREGIDOS */}
       <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
         :root { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
@@ -236,9 +244,6 @@ export default function JSForever2026() {
           width: 100%;
         }
         h1, h2, h3, h4, h5 { letter-spacing: -0.06em; line-height: 0.9; }
-        
-        /* Prevenir que el splash screen se mueva */
-        .fixed { width: 100%; }
       `}</style>
     </div>
   );
